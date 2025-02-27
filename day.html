@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مهام يوم رمضان</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="day.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="dayTitle">📅 يوم رمضان</h1>
+
+        <!-- قائمة المهام الأساسية -->
+        <div class="task-input">
+            <select id="taskSelect">
+                <option value="">اختر مهمة...</option>
+                <option value="🕌 الفجر">🕌 الفجر</option>
+                <option value="🕌 الظهر">🕌 الظهر</option>
+                <option value="🕌 العصر">🕌 العصر</option>
+                <option value="🕌 المغرب">🕌 المغرب</option>
+                <option value="🕌 العشاء">🕌 العشاء</option>
+                <option value="🤲 الدعاء">🤲 الدعاء</option>
+                <option value="📖 قراءة القرآن">📖 قراءة القرآن</option>
+                <option value="💰 الصدقة">💰 الصدقة</option>
+                <option value="✍️ مهمة أخرى">✍️ مهمة أخرى...</option>
+            </select>
+            <input type="text" id="customTaskInput" placeholder="أدخل المهمة هنا..." style="display: none;">
+            <input type="time" id="taskTime">
+            <button onclick="addTask()">➕</button>
+        </div>
+
+        <!-- قائمة المهام -->
+        <ul id="taskList"></ul>
+
+        <!-- أزرار التحكم -->
+        <div class="controls">
+            <button onclick="copyPreviousDayTasks()">📋 نسخ مهام اليوم السابق</button>
+            <button class="reset-all" onclick="resetAllTasks()">🔄 إعادة تعيين المهام</button>
+            <button onclick="goBack()">🔙 رجوع</button>
+        </div>
+    </div>
+
+</body>
+</html>
