@@ -1,4 +1,5 @@
 
+/* تصميم الصفحة بالكامل */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -14,36 +15,158 @@ body {
     margin: 0;
 }
 
+/* تصميم صندوق المحتوى */
 .container {
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
     width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* تصميم تقويم رمضان */
+.calendar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* أزرار الأيام في التقويم */
 .calendar-day {
-    display: block;
-    margin: 5px;
-    padding: 10px;
+    display: inline-block;
     background: #f9f9f9;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     text-decoration: none;
     color: black;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 120px;
+    text-align: center;
 }
 
-.task-list {
+.calendar-day:hover {
+    background: #87CEFA;
+}
+
+/* صندوق المهام */
+.task-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.task-input select,
+.task-input input {
+    width: 90%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.task-input button {
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+.task-input button:hover {
+    background: #45a049;
+}
+
+/* تصميم قائمة المهام */
+ul {
     list-style: none;
     padding: 0;
+    margin-top: 15px;
 }
 
-.completed {
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+li.completed {
     background-color: #b2f7b2;
     text-decoration: line-through;
 }
 
+/* أزرار المهام */
+.task-buttons {
+    display: flex;
+    gap: 5px;
+}
+
 button {
+    background: none;
+    border: none;
     cursor: pointer;
-    padding: 5px;
+    font-size: 18px;
+}
+
+/* تصميم الوضع الليلي */
+.dark-mode {
+    background: #222;
+    color: white;
+}
+
+.dark-mode .container {
+    background: rgba(51, 51, 51, 0.9);
+}
+
+.dark-mode .calendar-day {
+    background: #555;
+    color: white;
+}
+
+.dark-mode .task-input select,
+.dark-mode .task-input input {
+    background: #666;
+    color: white;
+    border: 1px solid #ccc;
+}
+
+.dark-mode li {
+    background: #444;
+    color: white;
+}
+
+/* زر الرجوع */
+.controls {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controls button {
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background: #ff9800;
+    color: white;
     border-radius: 5px;
+}
+
+.controls button:hover {
+    background: #e68900;
 }
