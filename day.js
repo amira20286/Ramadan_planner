@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     let tasks = JSON.parse(localStorage.getItem(`tasks_${dayNumber}`)) || [];
+    let tasbeehCount = parseInt(localStorage.getItem(`tasbeeh_${dayNumber}`)) || 0;
 
     function renderTasks() {
         const taskList = document.getElementById("taskList");
@@ -30,21 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const taskSelect = document.getElementById("taskSelect");
         const customTaskInput = document.getElementById("customTaskInput");
         const taskTime = document.getElementById("taskTime").value;
-        let taskText = "";
+        let taskText = taskSelect.value === "✍️ مهمة أخرى" ? customTaskInput.value : taskSelect.value;
 
-        if (taskSelect.value === "✍️ مهمة أخرى") {
-            if (customTaskInput.value.trim() !== "") {
-                taskText = customTaskInput.value;
-                customTaskInput.value = "";
-            } else {
-                alert("يرجى إدخال اسم المهمة.");
-                return;
-            }
-        } else {
-            taskText = taskSelect.value;
-        }
-
-        if (taskText !== "") {
+        if (taskText.trim() !== "") {
             tasks.push({ text: taskText, time: taskTime, completed: false });
             renderTasks();
         }
@@ -65,21 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
         renderTasks();
     };
 
-    function saveTasks() {
-        localStorage.setItem(`tasks_${dayNumber}`, JSON.stringify(tasks));
-    }
-
     window.copyPreviousDayTasks = function () {
         if (dayNumber > 1) {
             let previousTasks = JSON.parse(localStorage.getItem(`tasks_${dayNumber - 1}`)) || [];
-            if (previousTasks.length > 0) {
-                tasks = [...previousTasks];
-                renderTasks();
-            } else {
-                alert("لا توجد مهام في اليوم السابق.");
-            }
-        } else {
-            alert("هذا هو اليوم الأول من رمضان، لا يوجد يوم سابق.");
+            tasks = [...previousTasks];
+            renderTasks();
         }
     };
 
@@ -87,5 +66,32 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "index.html";
     };
 
+    function saveTasks() {
+        localStorage.setItem(`tasks_${dayNumber}`, JSON.stringify(tasks));
+    }
+
     renderTasks();
+
+    // إدارة المسبحة الإلكترونية
+    window.increaseCount = function () {
+        tasbeehCount++;
+        document.getElementById("tasbeehCount").innerText = tasbeehCount;
+        localStorage.setItem(`tasbeeh_${dayNumber}`, tasbeehCount);
+    };
+
+    window.decreaseCount = function () {
+        if (tasbeehCount > 0) {
+            tasbeehCount--;
+            document.getElementById("tasbeehCount").innerText = tasbeehCount;
+            localStorage.setItem(`tasbeeh_${dayNumber}`, tasbeehCount);
+        }
+    };
+
+    window.resetCount = function () {
+        tasbeehCount = 0;
+        document.getElementById("tasbeehCount").innerText = tasbeehCount;
+        localStorage.setItem(`tasbeeh_${dayNumber}`, tasbeehCount);
+    };
+
+    document.getElementById("tasbeehCount").innerText = tasbeehCount;
 });
