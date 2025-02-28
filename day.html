@@ -12,7 +12,6 @@
     <div class="container">
         <h1 id="dayTitle">📅 يوم رمضان</h1>
 
-        <!-- قائمة المهام -->
         <div class="task-section">
             <h2>📋 قائمة المهام</h2>
             <select id="taskSelect">
@@ -27,14 +26,11 @@
                 <option value="💰 الصدقة">💰 الصدقة</option>
                 <option value="✍️ مهمة أخرى">✍️ مهمة أخرى...</option>
             </select>
-            <input type="text" id="customTaskInput" placeholder="أدخل المهمة هنا..." style="display: none;">
-            <input type="time" id="taskTime">
             <button onclick="addTask()">➕</button>
         </div>
 
         <ul id="taskList"></ul>
 
-        <!-- مسبحة إلكترونية -->
         <div class="tasbeeh-section">
             <h2>📿 المسبحة الإلكترونية</h2>
             <select id="tasbeehSelect">
@@ -54,7 +50,7 @@
 
         <div class="controls">
             <button onclick="copyPreviousDayTasks()">📋 نسخ مهام اليوم السابق</button>
-            <button class="reset-all" onclick="resetAllTasks()">🔄 إعادة تعيين المهام</button>
+            <button onclick="resetAllTasks()">🔄 إعادة تعيين المهام</button>
             <button onclick="goBack()">🔙 رجوع</button>
         </div>
     </div>
