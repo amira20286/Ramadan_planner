@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مهام يوم رمضان</title>
+    <title>يوم رمضان</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="day.js"></script>
 </head>
@@ -12,8 +12,9 @@
     <div class="container">
         <h1 id="dayTitle">📅 يوم رمضان</h1>
 
-        <!-- قائمة المهام الأساسية -->
-        <div class="task-input">
+        <!-- قائمة المهام -->
+        <div class="task-section">
+            <h2>📋 قائمة المهام</h2>
             <select id="taskSelect">
                 <option value="">اختر مهمة...</option>
                 <option value="🕌 الفجر">🕌 الفجر</option>
@@ -31,10 +32,26 @@
             <button onclick="addTask()">➕</button>
         </div>
 
-        <!-- قائمة المهام -->
         <ul id="taskList"></ul>
 
-        <!-- أزرار التحكم -->
+        <!-- مسبحة إلكترونية -->
+        <div class="tasbeeh-section">
+            <h2>📿 المسبحة الإلكترونية</h2>
+            <select id="tasbeehSelect">
+                <option value="سبحان الله">سبحان الله</option>
+                <option value="الحمد لله">الحمد لله</option>
+                <option value="لا إله إلا الله">لا إله إلا الله</option>
+                <option value="الله أكبر">الله أكبر</option>
+                <option value="لا حول ولا قوة إلا بالله">لا حول ولا قوة إلا بالله</option>
+            </select>
+            <div class="counter-container">
+                <button onclick="decreaseCount()">➖</button>
+                <span id="tasbeehCount">0</span>
+                <button onclick="increaseCount()">➕</button>
+            </div>
+            <button onclick="resetCount()">🔄 إعادة التصفير</button>
+        </div>
+
         <div class="controls">
             <button onclick="copyPreviousDayTasks()">📋 نسخ مهام اليوم السابق</button>
             <button class="reset-all" onclick="resetAllTasks()">🔄 إعادة تعيين المهام</button>
