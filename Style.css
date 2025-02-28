@@ -1,64 +1,31 @@
-
-/* تعيين صورة الخلفية */
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    direction: rtl;
-    background: url('https://i.ibb.co/b5j9nSVD/image.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-}
-
-/* تحسين عرض التقويم */
-.calendar {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.week-days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    font-weight: bold;
-    text-align: center;
-    background: #ddd;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.calendar-day {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.tasbeeh-section {
+    margin-top: 20px;
     padding: 15px;
-    background: #F4F4F4;
-    border-radius: 8px;
+    background: #f9f9f9;
+    border-radius: 10px;
     text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    border: 2px solid #ddd;
-    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.counter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.counter-container button {
+    padding: 10px;
+    font-size: 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    margin: 5px;
 }
 
-.calendar-day:hover {
-    background: #87CEFA;
-    transform: scale(1.1);
-}
-
-/* خلايا فارغة قبل بداية رمضان */
-.calendar-empty {
-    visibility: hidden;
+#tasbeehCount {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
 }
