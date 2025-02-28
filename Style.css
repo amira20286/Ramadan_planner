@@ -1,5 +1,5 @@
 
-/* تصميم الصفحة بالكامل */
+/* تعيين صورة الخلفية */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -15,158 +15,50 @@ body {
     margin: 0;
 }
 
-/* تصميم صندوق المحتوى */
-.container {
+/* تحسين عرض التقويم */
+.calendar {
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
-    width: 80%;
-    max-width: 500px;
+    width: 90%;
+    max-width: 600px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* تصميم تقويم رمضان */
-.calendar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+.week-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    text-align: center;
+    background: #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-/* أزرار الأيام في التقويم */
 .calendar-day {
-    display: inline-block;
-    background: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background: #F4F4F4;
+    border-radius: 8px;
     text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    border: 2px solid #ddd;
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
 }
 
 .calendar-day:hover {
     background: #87CEFA;
+    transform: scale(1.1);
 }
 
-/* صندوق المهام */
-.task-input {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.task-input select,
-.task-input input {
-    width: 90%;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-.task-input button {
-    padding: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background: #4CAF50;
-    color: white;
-    border-radius: 5px;
-}
-
-.task-input button:hover {
-    background: #45a049;
-}
-
-/* تصميم قائمة المهام */
-ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-}
-
-li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #f9f9f9;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-li.completed {
-    background-color: #b2f7b2;
-    text-decoration: line-through;
-}
-
-/* أزرار المهام */
-.task-buttons {
-    display: flex;
-    gap: 5px;
-}
-
-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-/* تصميم الوضع الليلي */
-.dark-mode {
-    background: #222;
-    color: white;
-}
-
-.dark-mode .container {
-    background: rgba(51, 51, 51, 0.9);
-}
-
-.dark-mode .calendar-day {
-    background: #555;
-    color: white;
-}
-
-.dark-mode .task-input select,
-.dark-mode .task-input input {
-    background: #666;
-    color: white;
-    border: 1px solid #ccc;
-}
-
-.dark-mode li {
-    background: #444;
-    color: white;
-}
-
-/* زر الرجوع */
-.controls {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.controls button {
-    padding: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background: #ff9800;
-    color: white;
-    border-radius: 5px;
-}
-
-.controls button:hover {
-    background: #e68900;
+/* خلايا فارغة قبل بداية رمضان */
+.calendar-empty {
+    visibility: hidden;
 }
